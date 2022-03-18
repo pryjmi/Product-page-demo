@@ -1,0 +1,208 @@
+body, html {
+  font-family: "Helvetica Neue", Helvetica, Arial;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: #000000;
+  background-color: #efefef;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  transition: background-color 0.3s;
+}
+
+/*----------------- Dark mode ------------------*/
+.dark-mode {
+  background-color: #000;
+  color: #cccccc;
+}
+/* Header */
+.dark-mode > #header {
+  background-color: rgb(43, 103, 119, 0.7);
+}
+/* First section */
+.dark-mode > #first-section {
+  background-color: rgb(43, 103, 119, 0.7);
+}
+/* Second section */
+.dark-mode > #second-section {
+  background-color: rgb(43, 103, 119, 0.7);
+}
+/* Third section */
+.dark-mode > #third-section {
+  background-color: rgb(43, 103, 119, 0.7);
+}
+/*----------------- Dark mode end ------------------*/
+
+/*----------------- Navigation ------------------*/
+#nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#nav > li {
+  float: left;
+}
+
+#nav > li > a {
+  display: block;
+  color: #c9c9c9;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+#nav > li > div {
+  display: block;
+  padding: 9px 5px;
+}
+
+#nav > li > a:hover:not(.active) {
+  background-color: #222;
+}
+
+/*----------------- DM switch ---------------*/
+.switch {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 25px;
+}
+
+/* hide HTML checkbox */
+.switch input{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(71, 71, 71);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #d8d8d8;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #d8d8d8;
+}
+
+input:checked + .slider:before {
+  background-color: #333;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #000000;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(24px);
+}
+
+.slider.round {
+  border-radius: 28px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/*----------------- DM switch end ---------------*/
+/*----------------- Navigation end ------------------*/
+
+/*--------------- Header ----------------*/
+#header {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  background-color: rgb(202, 235, 242, 0.7);
+  transition: background-color 0.5s;
+}
+
+.section-title.center {
+  padding: 10px;
+}
+
+#header h1 {
+  font-size: 60px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+#header p {
+  font-size: 20px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+/*--------------- Header end ----------------*/
+
+/*------------- First section ------------------*/
+#first-section {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  background-color: rgb(202, 235, 242, 0.7);
+  transition: background-color 0.5s;
+}
+
+#first-section h2 {
+  text-transform: uppercase;
+  opacity: 100%;
+}
+
+#first-section h2 p {
+  opacity: 100%;
+}
+/*------------- First section end ------------------*/
+
+/*------------- Second section ------------------*/
+#second-section {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  background-color: rgb(202, 235, 242, 0.7);
+  transition: background-color 0.5s;
+}
+
+#second-section h2 {
+  text-transform: uppercase;
+}
+/*------------- Second section end ------------------*/
+
+/*------------- Third section ------------------*/
+#third-section {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  background-color: rgb(202, 235, 242, 0.7);
+  transition: background-color 0.5s;
+}
+
+#third-section h2 {
+  text-transform: uppercase;
+}
+/*------------- Third section end ------------------*/
