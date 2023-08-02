@@ -1,12 +1,9 @@
 body, html {
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
   color: #000000;
   scroll-behavior: auto;
   box-sizing: border-box;
-  background-color: #ffffff;
   background: linear-gradient(135deg, #cacdfc55 25%, transparent 25%) -26px 0/ 52px 52px, linear-gradient(225deg, #ced1ff 25%, transparent 25%) -26px 0/ 52px 52px, linear-gradient(315deg, #c5c8ff55 25%, transparent 25%) 0px 0/ 52px 52px, linear-gradient(45deg, #ced1ff 25%, #e5e5f7 25%) 0px 0/ 52px 52px;
-  transition: background-color .3s;
   transition: color .5s;
   overflow: hidden;
 }
@@ -16,6 +13,7 @@ p {
   font-size: 18px;
   width: 90%;
   margin: auto;
+  padding-bottom: 30px;
 }
 
 h1 {
@@ -23,7 +21,6 @@ h1 {
   font-size: 55px;
   font-weight: 600;
   letter-spacing: 1px;
-  text-transform: uppercase;
   margin-bottom: 0;
 }
 
@@ -31,6 +28,7 @@ h2 {
   font-family: nav;
   font-size: 28px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 h3 {
@@ -57,49 +55,65 @@ h3 {
   overflow-y: scroll;
   top: 0; right: 0; bottom: 0; left: 0;
   scroll-behavior: smooth;
+  transition: color 0.5s;
 }
 
 /*----------------- Dark mode ------------------*/
-.dark-mode > .overlay {
+.dark-mode .overlay {
   background-color: #e5e5f7;
   background: linear-gradient(135deg, #2c2d5855 25%, transparent 25%) -26px 0/ 52px 52px, linear-gradient(225deg, #2b2b46 25%, transparent 25%) -26px 0/ 52px 52px, linear-gradient(315deg, #2c2d5855 25%, transparent 25%) 0px 0/ 52px 52px, linear-gradient(45deg, #2b2b46 25%, #46464d 25%) 0px 0/ 52px 52px;
   color: #cccccc;
 }
 /* First section */
-.dark-mode > .overlay > #sect1 > .div > .s1subsect1 {
-  background-color: rgb(42, 43, 56, 0.8);
-}
-.dark-mode > .overlay > #sect1 > .div > .s1subsect2 {
-  background-color: rgb(42, 43, 56, 0.8);
-}
-.dark-mode > .overlay > #sect1 > .s1subsect3 {
-  background-color: rgb(42, 43, 56, 0.8);
+.dark-mode .overlay #sect1 {
+  background-color: rgb(42, 43, 56, 0.9);
 }
 /* Second section */
-.dark-mode > .overlay > #sect2 > .s2subsect1 {
-  background-color: rgb(42, 43, 56, 0.8);
+.dark-mode .overlay #sect2 {
+  background-color: rgb(42, 43, 56, 0.9);
 }
-.dark-mode > .overlay > #sect2 > .s2subsect2 {
-  background-color: rgb(42, 43, 56, 0.8);
+.dark-mode .overlay #sect2 .table1 th {
+  background-color: #1e2036a4;
+}
+.dark-mode .overlay #sect2 .table1 td {
+  background-color: #42455c91;
 }
 /* Third section */
-.dark-mode > .overlay > #sect3 {
-  background-color: rgb(42, 43, 56, 0.8);
+.dark-mode .overlay #sect3 {
+  background-color: rgb(42, 43, 56, 0.9);
 } 
 /* Footer */
-.dark-mode > .overlay > #footer {
+.dark-mode .overlay #footer {
   background-color: #46464d;
 }
 /* topnav */
-.dark-mode > .overlay > .topnav {
+.dark-mode .overlay .topnav {
   background-color: #46464d;
 }
-.dark-mode > .overlay > .topnav > li:hover:not(.active) {
+.dark-mode .overlay a:hover:not(.active) {
   color: #FFF;
   text-shadow: 0 0 5px rgb(110, 110, 110);
 }
-.dark-mode > .overlay > .topnav > li:active {
+.dark-mode .overlay a:active {
   background-color: #38383d;
+}
+
+.dark-mode .overlay #sect1 a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: #ccc;
+}
+
+.dark-mode .overlay #sect1 a:hover {
+  text-decoration: underline;
+}
+
+.dark-mode .overlay #sect1 a:link {
+  color: #ccc;
+}
+
+.dark-mode .overlay #sect1 a:visited {
+  color: #ccc;
 }
 /*----------------- Dark mode end ------------------*/
 /*----------------- Navigation ------------------*/
@@ -108,20 +122,20 @@ h3 {
   background-color: #3d405b;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   transition: background-color 0.5s;
 }
 
-.topnav > li > a:hover:not(.active) {
+.topnav a:hover:not(.active) {
   color: #fff;
   text-shadow: 0 0 5px rgb(110, 110, 110);
 }
 
-.topnav > li:active {
+.topnav a:active {
   background-color: #303247;
 }
 
-.topnav > li {
+.topnav a {
   text-transform: uppercase;
   font-family: nav;
   font-size: 16px;
@@ -129,16 +143,16 @@ h3 {
   float: left;
   display: flex;
   text-align: center;
-  padding: 15px 20px;
+  padding: 14px 1.5vw;
 }
 
-.topnav > li > a {
+.topnav a {
   color: #c9c9c9;
   text-decoration: none;
 }
 
 /*----------------- Dark mode switch --------------*/
-.topnav > .mswitch {
+.mswitch {
   position: relative;
   float: left;
   display: flex;
@@ -146,17 +160,25 @@ h3 {
 }
 
 @media screen and (max-width: 425px) {
-
-  .topnav > li {
+  .topnav a {
     font-size: 12px;
     padding: 18px 5px;
   }
-  .topnav > .mswitch {
+  .mswitch {
     position: relative;
     float: left;
     display: flex;
     padding: 0 18px;
   }
+
+  #sect1 .presentation {
+    border-radius: 15px;
+  }
+
+  #sect2 .gal1 img {
+    width: 50%;
+  }
+
 }
 /* hide HTML checkbox */
 .switch input{
@@ -207,9 +229,9 @@ input:checked + .slider:before {
 
 /*--------------- Header ----------------*/
 .header {
-  margin-top: 10px;
-  width: 100%;
-  padding: 10% 0;
+  width: 90vw;
+  height: 50vh;
+  padding: 40vh 0;
   margin: auto;
   text-align: center;
   transition: background-color 0.5s;
@@ -226,82 +248,48 @@ input:checked + .slider:before {
 
 /*------------- First section ------------------*/
 #sect1 {
-  width: 90%;
+  width: 90vw;
   margin: auto;
   margin-top: 2%;
   margin-bottom: 2%;
   padding: 4% 0;
-  text-align: center;
   background-color: rgba(203, 205, 236, 0.8);
   transition: background-color 0.5s;
   border-radius: 60px;
+  text-align: center;
 }
 
-.gallery1 > img {
-  width: 250px;
-  padding: 2%;
+#sect1 a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: #000;
+  transition: color .5s;
+}
+
+#sect1 a:hover {
+  text-decoration: underline;
+}
+
+#sect1 a:link {
+  color: #000;
+}
+
+#sect1 a:visited {
+  color: #000;
+}
+
+.presentation {
+  width: 90%;
+  border-radius: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 /*------------- First section end ------------------*/
 
 /*------------- Second section ------------------*/
 #sect2 {
-  width: 90%;
-  margin: auto;
-  text-align: center;
-}
-
-.s2subsect1 {
-  margin: auto;
-  margin-top: 2%;
-  margin-bottom: 0.5%;
-  padding: 4% 0;
-  background-color: rgba(203, 205, 236, 0.8);
-  transition: background-color 0.5s;
-  border-radius: 60px 60px 0 0;
-}
-
-.s2subsect2 {
-  margin: auto;
-  margin-bottom: 2%;
-  padding: 4% 0;
-  background-color: rgba(203, 205, 236, 0.8);
-  transition: background-color 0.5s;
-  border-radius: 0 0 60px 60px;
-}
-
-.s2subsect2 > div {
-  padding-bottom: 2%;
-}
-
-.table1 {
-  margin: auto;
-  font-family: nav;
-  width: 90%;
-  background-color:#b7bdeb6c;
-  text-align: center;
-  border-radius: 20px;
-}
-td, th {
-  padding: 8px 8px;
-}
-
-.c1 {
-  border-radius: 0 0 0 20px;
-}
-
-.c3 {
-  border-radius: 0 0 20px 0;
-}
-
-tr:nth-child(even) {
-  background-color:#9297c554;
-  
-}
-/*------------- Second section end ------------------*/
-
-/*------------- Third section ------------------*/
-#sect3 {
-  width: 90%;
+  width: 90vw;
   margin: auto;
   margin-top: 2%;
   margin-bottom: 2%;
@@ -312,10 +300,100 @@ tr:nth-child(even) {
   border-radius: 60px;
 }
 
-#sect3 .capy {
-  width: 90%;
-  padding: 2%;
+.gal1 {
+  background-color: #9297c554;
+  width: 80vw;
+  margin: auto;
+  border-radius: 20px;
+  list-style-type: none;
+  overflow: hidden;
 }
+
+.gal1 div {
+  padding: 0;
+}
+
+.gal1 div img {
+  display: inline-block;
+  padding: 0 60px;
+  width: 20%;
+}
+
+.table1 {
+  top: 20%;
+  margin: auto;
+  font-family: nav;
+  width: 80vw;
+  background-color:#b7bdeb6c;
+  text-align: center;
+  border-radius: 20px;
+}
+
+td {
+  padding: 8px 8px;
+  width: 30%;
+  background-color: #9297c554;
+}
+
+th {
+  padding: 8px 8px;
+  background-color: #6c73a5;
+}
+
+.in24 {
+  border-radius: 18px 0 0 0;
+}
+.in50 {
+  border-radius: 0 18px 0 0;
+}
+
+.c1 {
+  border-radius: 0 0 0 18px;
+}
+
+.c3 {
+  border-radius: 0 0 18px 0;
+}
+/*------------- Second section end ------------------*/
+
+/*------------- Third section ------------------*/
+#sect3 {
+  width: 90vw;
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 4% 0;
+  text-align: center;
+  background-color: rgba(203, 205, 236, 0.8);
+  transition: background-color 0.5s;
+  border-radius: 60px;
+}
+
+#sect3 p {
+  font-size: 12px;
+}
+
+#sect3 .order form {
+  font-family: intro_p;
+  text-align: center;
+  background-color: #9297c554;
+  border-radius: 60px;
+  width: 80%;
+  margin: auto;
+}
+
+#sect3 div form .text {
+  text-align: center;
+  
+  margin: auto;
+}
+
+#sect3 div form .submit {
+  border-radius: 20px;
+  background-color: #9297c554;
+  text-decoration: none;
+}
+
 /*------------- Third section end ------------------*/
 
 /*--------------- Footer -------------------*/
@@ -327,26 +405,32 @@ tr:nth-child(even) {
   text-align: center;
   background-color: #3d405b;
   transition: background-color 0.5s;
+  color: #fff;
 }
 
-#footer > h2 {
-  font-family: nav;
-  font-size: 28px;
-  text-transform: uppercase;
-  color:rgb(228, 228, 228);
+#footer h3 {
+  font-size: 16px;
+}
+
+#footer p {
+  font-size: 10px;
+  padding: 0;
+}
+
+#footer p a {
+  text-decoration: none;
+  color: #fff;
+}
+
+#footer p a:hover {
+  text-decoration: underline;
+}
+
+#footer p a:link {
+  color: inherit;
+}
+
+#footer p a:visited {
+  color: inherit;
 }
 /*-------------- Footer end ------------------*/
-/*
-:root {
-  background-color: rgba(165, 210, 255, .4);
-  background-image:
-    linear-gradient(-45deg, rgba(165, 210, 255, .4) 50%, transparent 50%),
-    linear-gradient(45deg, rgba(165, 210, 255, .2) 50%, transparent 50%);
-  background-size: 40px 40px;
-}*/
-
-/*
-background-color: #e5e5f7;
-opacity: 0.5;
-background: linear-gradient(135deg, #444cf755 25%, transparent 25%) -26px 0/ 52px 52px, linear-gradient(225deg, #444cf7 25%, transparent 25%) -26px 0/ 52px 52px, linear-gradient(315deg, #444cf755 25%, transparent 25%) 0px 0/ 52px 52px, linear-gradient(45deg, #444cf7 25%, #e5e5f7 25%) 0px 0/ 52px 52px;
-*/
